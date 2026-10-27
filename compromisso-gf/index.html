@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Compromissos GF Manutenção</title>
+<style>
+:root{
+  --page:#f9f9f7; --surface:#f4f3ef; --card:#ffffff; --ink:#0b0b0b; --ink2:#4a4946; --ink3:#66655f;
+  --line:#e1e0d9; --axis:#c3c2b7; --accent:#1f66c2;
+  --good:#12a312; --good-ink:#006300; --warn:#fab219; --serious:#ec835a; --crit:#d03b3b;
+  --good-bg:#dff3df; --crit-ink:#b0201f; --crit-bg:#fbe3e3; --warn-bg:#fff4dc; --na-bg:#f1f0ec;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --page:#0d0d0d; --surface:#222220; --card:#1a1a19; --ink:#f0efec; --ink2:#d0cfc6; --ink3:#b0afa8;
+    --line:#2c2c2a; --axis:#383835; --accent:#5a9cf0; --good:#2fb84a; --crit:#e85a5a;
+    --good-ink:#5ee07a; --good-bg:#123a1e; --crit-ink:#ff8a8a; --crit-bg:#4a1c1c; --warn-bg:#3a2e12; --na-bg:#232321;
+  }
+}
+:root[data-theme="dark"]{
+  --page:#0d0d0d; --surface:#222220; --card:#1a1a19; --ink:#f0efec; --ink2:#d0cfc6; --ink3:#b0afa8;
+  --line:#2c2c2a; --axis:#383835; --accent:#5a9cf0; --good:#2fb84a; --crit:#e85a5a;
+  --good-ink:#5ee07a; --good-bg:#123a1e; --crit-ink:#ff8a8a; --crit-bg:#4a1c1c; --warn-bg:#3a2e12; --na-bg:#232321;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--ink);font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:1280px;margin:0 auto;padding:20px 16px 48px}
+header{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;justify-content:space-between;margin-bottom:18px}
+h1{font-size:22px;margin:0;letter-spacing:-.01em}
+.sub{color:var(--ink2);font-size:13px;margin-top:2px}
+.pill{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:4px 10px;font-size:12px;color:var(--ink2)}
+.btn{cursor:pointer;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;padding:7px 14px;font:inherit;font-size:14px;font-weight:600;white-space:nowrap}
+.btn[aria-pressed="true"]{background:var(--ink);color:var(--page);border-color:var(--ink)}
+h2{font-size:15px;margin:28px 0 10px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink2)}
+.hero{display:grid;grid-template-columns:minmax(220px,300px) 1fr;gap:14px}
+@media (max-width:820px){.hero{grid-template-columns:1fr}}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.big{font-size:48px;font-weight:800;line-height:1;letter-spacing:-.02em}
+.big.ok{color:var(--good-ink)} .big.nok{color:var(--crit-ink)}
+.muted{color:var(--ink2)} .tiny{font-size:12px;color:var(--ink3)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:6px;position:relative}
+.card .t{font-weight:600;font-size:14px}
+.card .v{font-size:28px;font-weight:700;letter-spacing:-.02em}
+.card .v small{font-size:15px;font-weight:600;color:var(--ink2)}
+.card .v .v2{font-size:28px;font-weight:700}
+.per{font-size:12px;font-weight:600;color:var(--ink2);background:var(--na-bg);border-radius:6px;padding:2px 7px;width:max-content}
+.card .hd{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.st{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;border-radius:6px;padding:2px 7px;width:max-content}
+.st.ok{background:var(--good-bg);color:var(--good-ink)}
+.st.nok{background:var(--crit-bg);color:var(--crit-ink)}
+.st.na{background:var(--na-bg);color:var(--ink2)}
+.gap{font-size:13px;color:var(--ink)}
+.gap b{font-weight:600}
+.src{font-size:12px;margin-top:auto}
+.src a{color:var(--accent);text-decoration:none} .src a:hover{text-decoration:underline}
+.bar{height:8px;background:var(--na-bg);border-radius:4px;position:relative;margin:4px 0 2px}
+.bar i{position:absolute;left:0;top:0;bottom:0;border-radius:4px}
+.bar u{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--ink);text-decoration:none}
+details.rules summary{cursor:pointer;font-size:15px;margin:28px 0 10px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink2);font-weight:700}
+@media (max-width:640px){.hide-sm{display:none}
+  #grpFilter .lbl{display:none} #grpFilter .btn{flex:1;padding:7px 8px;font-size:13px}
+  #matrix thead{display:none}
+  #matrix tbody tr[data-l]{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px 6px;padding:12px 10px;border-bottom:1px solid var(--line)}
+  #matrix tbody tr[data-l] td{border:0;padding:0;display:flex;flex-direction:column;align-items:center;gap:3px;background:transparent}
+  #matrix tbody tr[data-l] td::before{content:attr(data-h);font-size:12px;color:var(--ink2);font-weight:600;text-align:center;line-height:1.2}
+  #matrix tbody tr[data-l] td:first-child{grid-column:1/-1;position:static;box-shadow:none;flex-direction:row;justify-content:space-between;align-items:center;font-size:16px}
+  #matrix tbody tr[data-l] td:first-child::before{content:none}
+  #matrix tbody tr[data-l] td.hide-sm{display:none}
+  #matrix tbody tr[data-l] td:last-child{display:none}
+  #matrix tr.det{display:block} #matrix tr.det td{display:block}
+  .detbox{position:static;max-width:none}
+}
+.filters{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:6px;margin-bottom:10px;align-items:center;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+.filters .lbl{font-size:13px;font-weight:600;color:var(--ink2);margin-right:4px}
+.tw{position:relative}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.tw::after{content:'›';position:absolute;top:1px;right:1px;bottom:1px;width:44px;border-radius:0 12px 12px 0;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:26px;font-weight:700;color:var(--ink);background:linear-gradient(to right,transparent,var(--card) 75%);pointer-events:none;opacity:0;transition:opacity .15s}
+.tw.more::after{opacity:1}
+table{border-collapse:separate;border-spacing:0;width:100%;font-size:13px}
+th,td{padding:8px 7px;text-align:center;border-bottom:1px solid var(--line);white-space:nowrap}
+th{white-space:normal;min-width:72px;max-width:120px;line-height:1.25;vertical-align:bottom}
+th:first-child,td:first-child{position:sticky;left:0;z-index:1;background:var(--card);box-shadow:1px 0 0 var(--line)}
+thead th:first-child{z-index:3;background:var(--surface)}
+th{font-size:12.5px;color:var(--ink2);font-weight:700;background:var(--surface)}
+th .tiny{font-weight:600;color:var(--ink2)}
+th.l,td.l{text-align:left}
+td.l{font-weight:600}
+tbody tr{cursor:pointer}
+tbody tr:hover td{background:var(--surface)}
+tbody tr.sel td{background:var(--na-bg)}
+tr.det td{background:var(--surface);white-space:normal;text-align:left;cursor:default}
+tr.det td:first-child{position:static;box-shadow:none}
+.detbox{position:sticky;left:12px;max-width:min(1180px,calc(100vw - 64px));padding:6px 4px}
+.sm-only{display:none} @media (max-width:640px){.sm-only{display:inline}}
+.tag{display:inline-block;margin-left:5px;font-size:11.5px;font-weight:700;color:var(--ink2);background:var(--na-bg);border:1px solid var(--line);border-radius:5px;padding:0 5px}
+#matrix tbody tr:not(.det){cursor:pointer}
+.c{display:inline-flex;align-items:center;gap:5px;justify-content:center;min-width:62px;border-radius:6px;padding:4px 7px;font-size:13.5px;font-weight:700;font-variant-numeric:tabular-nums}
+.c.ok{background:var(--good-bg);color:var(--good-ink)}
+.c.nok{background:var(--crit-bg);color:var(--crit-ink)}
+.c.na{color:var(--ink3)}
+.ic{font-size:11px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:900px){.grid2{grid-template-columns:1fr}}
+.rows{display:flex;flex-direction:column;gap:6px}
+.row{display:grid;grid-template-columns:150px 1fr 70px;gap:10px;align-items:center;font-size:13px}
+@media (max-width:520px){.row{grid-template-columns:110px 1fr 60px}}
+.row .num{text-align:right;font-variant-numeric:tabular-nums;font-size:14px;line-height:1.5}
+.rl{font-size:12.5px;font-weight:600;color:var(--ink2)}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--ink2);margin:6px 0 10px}
+.mk{display:inline-block;width:2px;height:12px;background:var(--ink)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:10px;height:10px;border-radius:3px;display:inline-block}
+.note{border-left:3px solid var(--warn);background:var(--warn-bg);padding:10px 12px;border-radius:6px;font-size:13px;margin:8px 0}
+ul.clean{margin:6px 0 0;padding-left:18px} ul.clean li{margin:3px 0}
+.linehead{display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+#tip{position:fixed;pointer-events:none;background:var(--ink);color:var(--page);font-size:12px;padding:6px 8px;border-radius:6px;opacity:0;transition:opacity .1s;z-index:9;max-width:260px}
+footer{margin-top:32px;font-size:12px;color:var(--ink3)}
+</style>
+<script>/*portal*/(function(){if(window.parent===window)return;var s=document.createElement('style');s.textContent='#themeBtn,#tema{display:none!important}';document.head.appendChild(s);addEventListener('message',function(e){var d=e.data;if(d&&(d.portalTheme==='dark'||d.portalTheme==='light'))document.documentElement.dataset.theme=d.portalTheme});})();</script></head>
+<body>
+<div class="wrap">
+<header>
+  <div>
+    <h1>Compromissos GF 2026 · Manutenção</h1>
+    <div class="sub">F. Rio de Janeiro (NR) · Packaging · metas do <b>H2</b> (jul–dez)</div>
+  </div>
+  <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+    <span class="pill" id="dataref"></span>
+    <button class="btn" id="themeBtn" title="Alternar tema">◐ Tema</button>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="panel">
+    <div class="muted" style="font-size:13px;font-weight:600">Compromissos no alvo (H2)</div>
+    <div class="big" id="scoreBig"></div>
+    <div class="muted" id="scoreTxt" style="margin-top:6px"></div>
+  </div>
+  <div class="panel">
+    <div class="muted" style="font-size:13px;font-weight:600;margin-bottom:6px">Prioridades</div>
+    <ul class="clean" id="prio"></ul>
+  </div>
+</div>
+
+<h2>Visão geral dos compromissos</h2>
+<div class="cards" id="cards"></div>
+
+<h2>Compromissos por Linha</h2>
+<div class="filters" id="grpFilter"><span class="lbl">Grupo:</span></div>
+<div class="tw"><div class="tablewrap"><table id="matrix"></table></div></div>
+
+<h2>Saúde do planejamento</h2>
+<div class="tw"><div class="tablewrap"><table id="spTable"></table></div></div>
+
+<h2>Saúde da lubrificação</h2>
+<div class="tw"><div class="tablewrap"><table id="lubTable"></table></div></div>
+
+<div class="grid2" style="margin-top:14px">
+  <div class="panel">
+    <div class="t" style="font-weight:700;font-size:15px">Planos referência (RCM) por linha</div>
+    <div class="legend"><span><i class="sw" style="background:var(--good)"></i>Atingiu</span><span><i class="sw" style="background:var(--crit)"></i>Não atingiu</span><span><i class="mk"></i>Meta</span></div>
+    <div class="rows" id="rcmRows"></div>
+  </div>
+  <div class="panel">
+    <div class="t" style="font-weight:700;font-size:15px">Lubrificação · Packaging</div>
+    <div class="rows" id="lubRows" style="margin-top:10px"></div>
+  </div>
+</div>
+
+<details class="rules"><summary>Regras</summary>
+<div class="tw"><div class="tablewrap"><table id="rules"></table></div></div>
+</details>
+</div>
+<div id="tip"></div>
+
+<script>
+/* ============================================================
+   DADOS — atualizar este bloco a cada rodada de coleta
+   ============================================================ */
+const DATA = {
+  ref: "27/10/2026", refRcm: "26/10",
+  periodo: "H2",
+  linhas: {
+    // grupo: Retornáveis / One Way / Outras
+    L501:{g:"Retornáveis"}, L502:{g:"Retornáveis"}, L503:{g:"Retornáveis"}, L505:{g:"Retornáveis"},
+    L506:{g:"Retornáveis"}, L521:{g:"Retornáveis"}, L542:{g:"Retornáveis"}, L543:{g:"Retornáveis"},
+    L511:{g:"One Way"}, L512:{g:"One Way"}, L514:{g:"One Way"}, L541:{g:"One Way"}, L561:{g:"One Way"}, L562:{g:"One Way"},
+    L527:{g:"Outras"}, L528:{g:"Outras"}, CIP:{g:"Outras"}
+  },
+  // Saúde do planejamento — BI Confiabilidade SAZ > Saúde do Planejamento (visão gerencial, Packaging, out/26)
+  sp: {
+    cols:[
+      {k:"ope",  n:"% OPE relatando anomalia", op:">=", m:70, u:"%"},
+      {k:"tec",  n:"% Técnico ≥10 ordens",     op:">=", m:70, u:"%"},
+      {k:"nota", n:"% Qualidade da nota",      op:">=", m:90, u:"%"},
+      {k:"tmd",  n:"TMD (dias)",               op:"<=", m:5,  u:""},
+      {k:"fora", n:"% Exec. fora P3M",         op:"<=", m:20, u:"%"},
+      {k:"p3m",  n:"% P3M",                    op:">=", m:80, u:"%"},
+      {k:"troca",n:"% Troca mandatória",       op:">=", m:90, u:"%"},
+      {k:"cal",  n:"% Calibração até a data",  op:">=", m:90, u:"%"},
+      {k:"col",  n:"% Coletas preditivas",     op:">=", m:90, u:"%"},
+      {k:"rdp",  n:"% Exec. RDP",              op:">=", m:90, u:"%"}
+    ],
+    planta:[67.3,47.6,97.4,1.6,21.4,61.9,30.3,96.6,93.5,100.0],
+    linhas:{
+      L501:[60.5,76.9,98.0,4.5,25.3,62.2,50.0,78.9,70.0,null],
+      L503:[37.5,62.5,96.6,1.9,13.6,67.7,0.0,100.0,91.9,100.0],
+      L505:[71.1,46.7,97.4,0.5,14.2,68.6,38.1,100.0,93.6,100.0],
+      L506:[60.0,59.1,98.0,1.5,25.9,58.0,40.0,100.0,100.0,null],
+      L511:[75.0,31.3,96.2,0.7,20.2,46.7,22.2,100.0,100.0,null],
+      L512:[76.9,47.6,96.5,0.7,5.8,75.4,0.0,100.0,98.5,null],
+      L514:[92.6,47.1,97.1,1.1,32.2,50.6,25.0,100.0,100.0,null],
+      L521:[66.7,37.5,98.8,5.6,39.6,36.4,21.1,null,100.0,null],
+      L527:[null,null,98.6,0.9,7.6,83.3,44.4,null,100.0,null],
+      L528:[null,null,98.4,0.9,20.0,64.2,null,100.0,null,null],
+      L541:[37.3,47.6,96.0,1.1,7.1,65.8,10.0,100.0,100.0,100.0],
+      L542:[73.3,27.8,98.5,1.0,9.8,69.7,65.0,100.0,98.3,100.0],
+      L561:[40.0,50.0,98.2,1.0,20.6,50.7,0.0,100.0,100.0,null],
+      L562:[51.7,43.8,95.7,0.6,8.5,60.4,0.0,100.0,100.0,null],
+      CIP:[null,null,90.3,2.4,38.6,43.6,18.2,100.0,null,null]
+    }
+  },
+  // RCM — Supply Analytics Manutenção > Saudabilidade RCM > RCM Aderência (Unidade F. RIO JANEIRO + UG PACKAGING)
+  rcm: {
+    planta:{quant:93.55, qual:79.06, nQuant:3194, nQual:3787},
+    linhas:{
+      L501:[95.93,83.39], L503:[95.77,75.00], L505:[96.50,82.21], L506:[97.49,71.40],
+      L511:[92.10,82.46], L512:[81.93,72.71], L514:[91.28,74.94], L521:[100,100],
+      L541:[94.99,82.90], L542:[100,81.05], L561:[97.18,84.29], L562:[95.02,85.65]
+    }
+  },
+  // Erros críticos — Saudabilidade Planos (F. RIO JANEIRO + UG PACKAGING). [planos que funcionam, planos com erro crítico]
+  ec: {
+    planta:{total:14378, comErro:28, pct:0.19},
+    linhas:{ L501:[1386,4], L503:[1350,1], L505:[1211,2], L506:[1311,1], L511:[845,0], L512:[1037,0], L514:[891,0], L521:[506,0],
+             L527:[525,0], L528:[454,0], L541:[1381,0], L542:[1030,0], L561:[1025,0], L562:[823,0] },
+    naoInformado:[311,20],
+    obs:"20 dos 28 estão em planos de Packaging sem subárea informada (NÃO INFORMADO)."
+  },
+  // OH — Visibilidade Overhaul 2026 > Farol Execução (Packaging NR)
+  oh: {
+    planta:{exec:284, total:284},
+    linhas:{ L501:100, L502:100, L503:100, L505:100, L506:100, L511:100, L512:100, L514:100,
+             L541:100, L542:100, L561:100, L562:100 },
+    pendente:""
+  },
+  // Lubrificação — Confiabilidade SAZ > Dash Lubrificação > Requisitos Mínimos (NR, out/26)
+  lub: {
+    pontos:70,
+    itens:[
+      {n:"Existe dono para sala", v:"SIM", ok:true, g:"Estratégia"},
+      {n:"% Saúde SmartCheck", v:"121,9%", ok:true, g:"Estratégia"},
+      {n:"Aderência RCM referência ≥90%", v:"93,4%", ok:true, g:"Estratégia"},
+      {n:"Saúde planos lubrificação ≥90%", v:"94,3%", ok:true, g:"Estratégia"},
+      {n:"Taxa coleta óleo ≥90%", v:"100,0%", ok:true, g:"Execução"},
+      {n:"Exec. planos SAP ≥90%", v:"62,0%", ok:false, g:"Execução"},
+      {n:"Exec. lubrificação SmartCheck ≥90%", v:"87,5%", ok:false, g:"Execução"},
+      {n:"% Exec. RDP óleo ≥90%", v:"100,0%", ok:true, g:"Execução"},
+      {n:"Taxa falha óleo ≤12%", v:"16,2%", ok:false, g:"Resultado"},
+      {n:"Taxa recorrência ≤10%", v:"0,0%", ok:true, g:"Resultado"}
+    ]
+  },
+  // Lubrificação por linha (out/26) — 10 critérios. Ordem: dono sala, % saúde SmartCheck, aderência RCM (H302, quant.),
+  // saúde planos (H302), taxa coleta óleo (=coletas preditivas da saúde do planejamento), exec. planos SAP (P3M H302 out/26),
+  // exec. lubrificação SmartCheck (out/26, ponderado por atividades), % exec RDP óleo (= RDP da saúde do planejamento),
+  // taxa de falha óleo e recorrência (valor da planta NR para todas as linhas)
+  lubL: {
+    cols:[
+      {k:"dono", n:"Dono da sala",               op:"bool", m:1,  u:"",  g:"Estratégia"},
+      {k:"scs",  n:"% Saúde SmartCheck",         op:">=", m:90, u:"%", g:"Estratégia"},
+      {k:"rcm",  n:"Aderência RCM ref. (302)",   op:">=", m:90, u:"%", g:"Estratégia"},
+      {k:"pl",   n:"Saúde planos lubrif. (302)", op:">=", m:90, u:"%", g:"Estratégia"},
+      {k:"col",  n:"Taxa coleta óleo",           op:">=", m:90, u:"%", g:"Execução"},
+      {k:"sap",  n:"Exec. planos SAP (302)",     op:">=", m:90, u:"%", g:"Execução"},
+      {k:"scx",  n:"Exec. lubrif. SmartCheck",   op:">=", m:90, u:"%", g:"Execução"},
+      {k:"rdp",  n:"% Exec. RDP óleo",           op:">=", m:90, u:"%", g:"Execução"},
+      {k:"fal",  n:"Taxa falha óleo (planta)",            op:"<=", m:12, u:"%", g:"Resultado"},
+      {k:"rec",  n:"Taxa recorrência (planta)",           op:"<=", m:10, u:"%", g:"Resultado"}
+    ],
+    planta:[1, 92.3, 96.35, 94.28, 93.5, 54.23, 88.7, 100.0, 17.6, 0.0],
+  linhas:{
+      L501:[1, 97.9, 88.24, 89.8, 70.0, 50.0, 99.0, null, 17.6, 0.0],
+      L503:[1, 93.5, 100, 94.18, 91.9, 100.0, 89.0, 100.0, 17.6, 0.0],
+      L505:[1, 96.6, 100, 99.63, 93.6, 50.0, 100.0, 100.0, 17.6, 0.0],
+      L506:[1, 93.5, 100, 94.12, 100.0, 72.73, 95.0, null, 17.6, 0.0],
+      L511:[1, 92.2, 100, 96.77, 100.0, 11.11, 100.0, null, 17.6, 0.0],
+      L512:[1, 93.9, 85.71, 94.87, 98.5, 53.85, 93.0, null, 17.6, 0.0],
+      L514:[1, 99.5, 100, 94.8, 100.0, 35.71, 100.0, null, 17.6, 0.0],
+      L521:[1, 86.1, 100, 100, 100.0, null, 58.0, null, 17.6, 0.0],
+      L527:[1, 75.0, null, 76.43, 100.0, 100.0, 50.0, null, 17.6, 0.0],
+      L528:[1, 98.8, null, 71.43, null, 44.0, 100.0, null, 17.6, 0.0],
+      L541:[1, 92.9, 94.74, 98.05, 100.0, 51.85, 97.6, 100.0, 17.6, 0.0],
+      L542:[1, 92.5, 100, 98.35, 98.3, 63.16, 92.0, 100.0, 17.6, 0.0],
+      L543:[1, 54.5, null, null, null, null, 67.0, null, 17.6, 0.0],
+      L561:[1, 96.7, 100, 100, 100.0, 38.46, 100.0, null, 17.6, 0.0],
+      L562:[1, 98.0, 66.67, 100, 100.0, 100.0, 100.0, null, 17.6, 0.0],
+      CIP:[1, 100, null, null, null, null, 100.0, null, 17.6, 0.0]
+    },
+    biNR:70
+  },
+  links:{
+    sp:"https://app.powerbi.com/groups/me/apps/95131867-66f2-47ff-ba4e-ee46ea189bf9/reports/dd82d41a-5f98-495d-bed9-3fa9603a171c/6a9e81e91fd79a312287?ctid=cef04b19-7776-4a94-b89b-375c77a8f936&experience=power-bi&clientSideAuth=0",
+    rcm:"https://app.powerbi.com/groups/me/apps/3d628e6c-fcac-4665-8e5c-084376f05f28/reports/f8e91ce0-ea0a-44ad-af73-c8b8a7e7e312/d77282b3b2a6296a9ca4?ctid=cef04b19-7776-4a94-b89b-375c77a8f936&experience=power-bi",
+    ec:"https://app.powerbi.com/groups/me/apps/3d628e6c-fcac-4665-8e5c-084376f05f28/reports/ae1ed78a-605f-4253-9026-79dd08672f0b/ReportSectionda8425c61a73c3c78511?ctid=cef04b19-7776-4a94-b89b-375c77a8f936&experience=power-bi",
+    oh:"https://app.powerbi.com/groups/me/apps/95131867-66f2-47ff-ba4e-ee46ea189bf9/reports/44673864-d8da-4604-89b6-2bd4cf792cc2/016ff5a4e9fe9afb7189?ctid=cef04b19-7776-4a94-b89b-375c77a8f936&experience=power-bi",
+    lub:"https://app.powerbi.com/groups/me/apps/95131867-66f2-47ff-ba4e-ee46ea189bf9/reports/46d00ae5-bc81-47dc-8ac0-c576f87203e3/360e0bb043eb7c02bda2?ctid=cef04b19-7776-4a94-b89b-375c77a8f936&experience=power-bi"
+  }
+};
+
+const METAS = { // H1 / H2
+  sp:{H1:70,H2:80}, lub:{H1:80,H2:90}, rcmQuant:{H1:80,H2:90}, rcmQual:{H1:null,H2:80},
+  ec:{H1:0.1,H2:0.1}, oh:{H1:100,H2:100}
+};
+
+/* ============================================================
+   LÓGICA
+   ============================================================ */
+const P = DATA.periodo;
+const fmt = (v,d=1)=> v==null? "—" : v.toLocaleString("pt-BR",{minimumFractionDigits:d,maximumFractionDigits:d});
+const hit = (v,op,m)=> v==null? null : (op===">="? v>=m : v<=m);
+function spScore(arr){
+  let g=0,n=0; DATA.sp.cols.forEach((c,i)=>{const v=arr[i]; if(v==null) return; n++; if(hit(v,c.op,c.m)) g++;});
+  return {g,n,pts: n? Math.round(100*g/n):null, need: n? Math.max(0, Math.ceil(METAS.sp[P]/100*n - 1e-9)-g):0};
+}
+function lubHit(v,c){ return v==null? null : c.op==="bool"? v===1 : hit(v,c.op,c.m); }
+function lubScore(arr){
+  let g=0,n=0; DATA.lubL.cols.forEach((c,i)=>{const v=arr[i]; if(v==null) return; n++; if(lubHit(v,c)) g++;});
+  return {g,n,pts: n? Math.round(100*g/n):null, need: n? Math.max(0, Math.ceil(METAS.lub[P]/100*n - 1e-9)-g):0};
+}
+function lubTxt(v,c){ return c.op==="bool"? (v===1?'SIM':'NÃO') : fmt(v)+c.u; }
+function stHTML(ok){ return ok==null? '<span class="st na">sem dado</span>' : ok? '<span class="st ok">✔ No alvo</span>' : '<span class="st nok">✖ Fora</span>'; }
+function cell(v,ok,txt){
+  if(v==null) return '<span class="c na">—</span>';
+  return `<span class="c ${ok?'ok':'nok'}"><span class="ic">${ok?'●':'◆'}</span>${txt}</span>`;
+}
+function barHTML(v,meta,max,ok,inverse){
+  const w=Math.max(0,Math.min(100,v/max*100)), mw=meta/max*100;
+  return `<div class="bar"><i style="width:${w}%;background:${ok?'var(--good)':'var(--crit)'}"></i><u style="left:calc(${mw}% - 1px)"></u></div>`;
+}
+
+// ----- Visão planta
+const spP = spScore(DATA.sp.planta);
+const r = DATA.rcm.planta;
+const ecMax = Math.floor(DATA.ec.planta.total*METAS.ec[P]/100);
+const ohPct = DATA.oh.planta.exec/DATA.oh.planta.total*100;
+const lubP = lubScore(DATA.lubL.planta);
+const lubOk = lubP.pts>=METAS.lub[P];
+const lubFail = DATA.lubL.cols.map((c,i)=>({c,v:DATA.lubL.planta[i]})).filter(x=>x.v!=null && !lubHit(x.v,x.c));
+const lubNeed = lubP.need;
+
+const spNearest = DATA.sp.cols.map((c,i)=>({c,v:DATA.sp.planta[i]})).filter(x=>x.v!=null && !hit(x.v,x.c.op,x.c.m))
+  .map(x=>({...x,dist: Math.abs(x.v-x.c.m)/ (x.c.op==="<="? x.c.m : x.c.m)})).sort((a,b)=>a.dist-b.dist);
+
+const COMP = [
+  {id:"sp", per:"out/26", t:"Saúde do planejamento", v:`${spP.pts}<small> pts</small>`, meta:`meta ≥ ${METAS.sp[P]} pts`, ok: spP.pts>=METAS.sp[P],
+   bar: barHTML(spP.pts,METAS.sp[P],100,spP.pts>=METAS.sp[P]),
+   gap: spP.need? `Faltam <b>${spP.need} indicadores verdes</b>. Mais perto: ${spNearest.slice(0,2).map(x=>`${x.c.n} (${fmt(x.v)}${x.c.u} vs ${x.c.op==='>='?'≥':'≤'}${x.c.m}${x.c.u})`).join('; ')}.` : 'No alvo.',
+   src:"sp"},
+  {id:"lub", per:"out/26", t:"Saúde da lubrificação", v:`${lubP.pts}<small> pts</small>`, meta:`meta ≥ ${METAS.lub[P]} pts`, ok: lubOk,
+   bar: barHTML(lubP.pts,METAS.lub[P],100,lubOk),
+   gap: (lubNeed? `Faltam <b>${lubNeed} critérios</b>. Abertos: ${lubFail.map(x=>`${x.c.n} (${lubTxt(x.v,x.c)})`).join('; ')}.` : 'No alvo.'), src:"lub"},
+  {id:"rcm", per:`posição ${DATA.refRcm}`, t:"Aplicação planos referência", v:`<span class="v2" style="color:${r.quant>=METAS.rcmQuant[P]?'var(--good-ink)':'var(--crit-ink)'}">${fmt(r.quant)}%</span><small> quant.</small> <span class="v2" style="color:${r.qual>=METAS.rcmQual[P]?'var(--good-ink)':'var(--crit-ink)'}">${fmt(r.qual)}%</span><small> qual.</small>`, meta:`quantitativo ≥ ${METAS.rcmQuant[P]}% e qualitativo ≥ ${METAS.rcmQual[P]}%`,
+   ok: r.quant>=METAS.rcmQuant[P] && r.qual>=METAS.rcmQual[P],
+   bar: barHTML(r.quant,METAS.rcmQuant[P],100,r.quant>=METAS.rcmQuant[P]) + barHTML(r.qual,METAS.rcmQual[P],100,r.qual>=METAS.rcmQual[P]),
+   gap: `Quantitativo: ${r.quant>=METAS.rcmQuant[P]?'<b>no alvo ✔</b>':`faltam ≈<b>${Math.ceil(r.nQuant*(METAS.rcmQuant[P]-r.quant)/100)} planos aplicados</b>`}. Qualitativo: ${r.qual>=METAS.rcmQual[P]?'<b>no alvo ✔</b>':`faltam ≈<b>${Math.ceil(r.nQual*(METAS.rcmQual[P]-r.qual)/100)} planos aderentes</b> (${fmt(METAS.rcmQual[P]-r.qual)} p.p.)`}.`, src:"rcm"},
+  {id:"ec", per:`posição ${DATA.refRcm}`, t:"Zero erros críticos", v:`${fmt(DATA.ec.planta.pct,2)}%<small> · ${DATA.ec.planta.comErro} planos</small>`, meta:`meta ≤ ${fmt(METAS.ec[P],1)}% (máx. ${ecMax} planos)`,
+   ok: DATA.ec.planta.pct<=METAS.ec[P],
+   bar: barHTML(DATA.ec.planta.comErro, ecMax, Math.max(ecMax,DATA.ec.planta.comErro)*1.25, DATA.ec.planta.pct<=METAS.ec[P]),
+   gap: `Corrigir pelo menos <b>${Math.max(0,DATA.ec.planta.comErro-ecMax)} planos</b> com erro crítico. ${DATA.ec.obs} Linhas: ${Object.entries(DATA.ec.linhas).filter(([,v])=>v[1]>0).sort((a,b)=>b[1][1]-a[1][1]).map(([l,v])=>`${l} (${v[1]})`).join(', ')}.`, src:"ec"},
+  {id:"oh", per:"acumulado 2026", t:"Execução de OH", v:`${fmt(ohPct,2)}%<small> · ${DATA.oh.planta.exec}/${DATA.oh.planta.total}</small>`, meta:`meta = ${METAS.oh[P]}%`,
+   ok: ohPct>=METAS.oh[P], bar: barHTML(ohPct,METAS.oh[P],100,ohPct>=METAS.oh[P]),
+   gap: DATA.oh.planta.exec>=DATA.oh.planta.total? `Todas as <b>${DATA.oh.planta.total} ordens</b> de OH executadas.` : `Falta <b>${DATA.oh.planta.total-DATA.oh.planta.exec} ordem</b>: ${DATA.oh.pendente}.`, src:"oh"}
+];
+
+const okCount = COMP.filter(c=>c.ok).length;
+document.getElementById('dataref').textContent = `Dados do BI em ${DATA.ref}`;
+document.getElementById('scoreBig').textContent = `${okCount}/${COMP.length}`;
+document.getElementById('scoreBig').className = 'big ' + (okCount===COMP.length?'ok':'nok');
+document.getElementById('scoreTxt').textContent = okCount===COMP.length? 'Todos os compromissos no alvo.' : `${COMP.length-okCount} compromissos fora da meta do ${P}.`;
+
+document.getElementById('cards').innerHTML = COMP.map(c=>`
+  <div class="card">
+    <div class="t">${c.t}</div>
+    <div class="hd">${stHTML(c.ok)}<span class="per">${c.per}</span></div>
+    <div class="v" style="${c.id==='rcm'?'':`color:${c.ok?'var(--good-ink)':'var(--crit-ink)'}`}">${c.v}</div>
+    <div class="tiny">${c.meta}</div>
+    ${c.bar}
+    <div class="gap">${c.gap}</div>
+    <div class="src"><a href="${DATA.links[c.src]}" target="_blank" rel="noopener">Abrir no Power BI ↗</a></div>
+  </div>`).join('');
+
+// prioridades (ordenado por esforço aparente)
+const lubLow = Object.entries(DATA.lubL.linhas).filter(([,a])=>a[6]!=null&&a[6]<90).sort((a,b)=>a[1][6]-b[1][6]).map(([l,a])=>`${l} (${fmt(a[6],0)}%)`);
+const lubOpen = DATA.lubL.cols.map((c,i)=>({c,v:DATA.lubL.planta[i]})).filter(x=>x.v!=null&&!lubHit(x.v,x.c)).map(x=>`${x.c.n} ${lubTxt(x.v,x.c)}`);
+const rcmLow = Object.entries(DATA.rcm.linhas).filter(([,v])=>v[1]<METAS.rcmQual[P]).sort((a,b)=>a[1][1]-b[1][1]).map(([l])=>l);
+const ecLines = Object.entries(DATA.ec.linhas).filter(([,v])=>v[1]>0).sort((a,b)=>b[1][1]-a[1][1]);
+const prio = [
+  ohPct>=METAS.oh[P] ? null : `<b>OH:</b> fechar ${DATA.oh.planta.total-DATA.oh.planta.exec} ordem(ns) pendente(s) → vira 100%.`,
+  `<b>Erros críticos:</b> são ${DATA.ec.planta.comErro} planos com erro; o máximo permitido é ${ecMax}. Corrigir pelo menos ${Math.max(0,DATA.ec.planta.comErro-ecMax)}, começando pelos ${DATA.ec.naoInformado[1]} sem subárea informada${ecLines.length?` e depois os ${ecLines[0][1][1]} da ${ecLines[0][0]}`:''}.`,
+  `<b>Saúde do planejamento:</b> ${spNearest.slice(0,2).map(x=>x.c.n).join(' e ')} estão mais perto da meta; faltam ${spP.need} verdes para ${METAS.sp[P]} pts.`,
+  `<b>Lubrificação:</b> faltam ${lubP.need} critério(s) para ${METAS.lub[P]} pts. Abertos: ${lubOpen.join('; ')}. Execução SmartCheck mais baixa em ${lubLow.slice(0,4).join(', ')}.`,
+  `<b>RCM:</b> quantitativo ${r.quant>=METAS.rcmQuant[P]?'no alvo':'fora'} (${fmt(r.quant)}%); qualitativo ${r.qual>=METAS.rcmQual[P]?'no alvo':`a ${fmt(METAS.rcmQual[P]-r.qual)} p.p. da meta (≈${Math.ceil(r.nQual*(METAS.rcmQual[P]-r.qual)/100)} planos)`}. Linhas abaixo de ${METAS.rcmQual[P]}%: ${rcmLow.join(', ')}.`
+].filter(Boolean);
+document.getElementById('prio').innerHTML = prio.map(p=>`<li>${p}</li>`).join('');
+
+// ----- Mapa por linha
+const lineKeys = Object.keys(DATA.linhas);
+function lineEval(L){
+  const spArr = DATA.sp.linhas[L]; const s = spArr? spScore(spArr):null;
+  const rc = DATA.rcm.linhas[L]; const ecA = DATA.ec.linhas[L]; const ec = ecA? 100*ecA[0]/(ecA[0]+ecA[1]) : null; const oh = DATA.oh.linhas[L];
+  const res = {
+    sp: s? {v:s.pts, ok:s.pts>=METAS.sp[P], txt:`${s.pts} pts`, need:s.need}:null,
+    rq: rc? {v:rc[0], ok:rc[0]>=METAS.rcmQuant[P], txt:fmt(rc[0])+'%'}:null,
+    rl: rc? {v:rc[1], ok:rc[1]>=METAS.rcmQual[P], txt:fmt(rc[1])+'%'}:null,
+    ec: ec!=null? {v:100-ec, ok:(100-ec)<=METAS.ec[P]+1e-9, txt:fmt(100-ec,2)+'%'+(ecA[1]?` (${ecA[1]})`:''), n:ecA[1]}:null,
+    oh: oh!=null? {v:oh, ok:oh>=METAS.oh[P], txt:fmt(oh,0)+'%'}:null,
+    lub: DATA.lubL.linhas[L]? (()=>{const q=lubScore(DATA.lubL.linhas[L]); return {v:q.pts, ok:q.pts>=METAS.lub[P], txt:q.pts+' pts', need:q.need};})() : null
+  };
+  const vals = Object.values(res).filter(Boolean);
+  res.okN = vals.filter(x=>x.ok).length; res.n = vals.length;
+  return res;
+}
+let grp = "Todas"; let selLine = null;
+const groups = ["Todas","Retornáveis","One Way","Outras"];
+const gf = document.getElementById('grpFilter');
+groups.forEach(g=>{const b=document.createElement('button'); b.className='btn'; b.textContent=g; b.setAttribute('aria-pressed', g===grp);
+  b.onclick=()=>{grp=g; gf.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed', x.textContent===g)); renderMatrix(); renderSP(); renderLub(); renderRCM(); updMore();}; gf.appendChild(b);});
+
+function renderMatrix(){
+  const rows = lineKeys.filter(L=> grp==="Todas" || DATA.linhas[L].g===grp);
+  let h = `<thead><tr><th class="l">Linha</th><th class="l hide-sm">Grupo</th><th>Saúde planej.<br><span class="tiny">≥${METAS.sp[P]} pts</span></th><th>RCM quant.<br><span class="tiny">≥${METAS.rcmQuant[P]}%</span></th><th>RCM qual.<br><span class="tiny">≥${METAS.rcmQual[P]}%</span></th><th>Erro crítico<br><span class="tiny">≤${fmt(METAS.ec[P])}%</span></th><th>Execução OH<br><span class="tiny">${METAS.oh[P]}%</span></th><th>Saúde lubrif.<br><span class="tiny">≥${METAS.lub[P]} pts</span></th><th>No alvo</th></tr></thead><tbody>`;
+  rows.forEach(L=>{
+    const e=lineEval(L);
+    const c=(x)=> x? cell(x.v,x.ok,x.txt) : '<span class="c na">—</span>';
+    const alvo = `<b>${e.okN}</b><span class="muted">/${e.n}</span>${e.n<4?'<span class="tag" title="Linha com poucos compromissos medidos">parcial</span>':''}`;
+    h += `<tr data-l="${L}" class="${selLine===L?'sel':''}"><td class="l">${L}<span class="sm-only" style="font-size:13px;font-weight:500">${alvo} no alvo</span></td><td class="l hide-sm" style="font-weight:400;color:var(--ink2)">${DATA.linhas[L].g}</td><td data-h="Saúde planej.">${c(e.sp)}</td><td data-h="RCM quant.">${c(e.rq)}</td><td data-h="RCM qual.">${c(e.rl)}</td><td data-h="Erro crítico">${c(e.ec)}</td><td data-h="Execução OH">${c(e.oh)}</td><td data-h="Saúde lubrif.">${c(e.lub)}</td><td>${alvo}</td></tr>`;
+    if(selLine===L) h += `<tr class="det"><td colspan="9"><div class="detbox">${lineHTML(L)}</div></td></tr>`;
+  });
+  h += `</tbody>`;
+  const t=document.getElementById('matrix'); t.innerHTML=h;
+  t.querySelectorAll('tbody tr[data-l]').forEach(tr=>tr.onclick=()=>{selLine= selLine===tr.dataset.l? null : tr.dataset.l; renderMatrix(); updMore();});
+}
+function lineHTML(L){
+  const e=lineEval(L), sp=DATA.sp.linhas[L];
+  const items=[];
+  if(e.sp){
+    const fails = sp? DATA.sp.cols.map((c,i)=>({c,v:sp[i]})).filter(x=>x.v!=null && !hit(x.v,x.c.op,x.c.m)) : [];
+    items.push(`<li><b>Saúde do planejamento:</b> ${e.sp.txt} — ${e.sp.ok?'no alvo':`faltam ${e.sp.need} verde(s). Vermelhos: ${fails.map(x=>`${x.c.n} ${fmt(x.v)}${x.c.u}`).join(', ')}`}.</li>`);
+  } else items.push(`<li><b>Saúde do planejamento:</b> sem dado para a linha.</li>`);
+  items.push(e.rq? `<li><b>RCM:</b> quantitativo ${e.rq.txt} ${e.rq.ok?'✔':'✖'} · qualitativo ${e.rl.txt} ${e.rl.ok?'✔':'✖'}.</li>` : `<li><b>RCM:</b> linha não aparece no BI de aderência RCM.</li>`);
+  items.push(e.ec? `<li><b>Erro crítico:</b> ${e.ec.txt} dos planos com erro ${e.ec.ok?'✔':'✖ (meta ≤0,1%)'}.</li>` : `<li><b>Erro crítico:</b> sem dado.</li>`);
+  if(e.lub){ const la=DATA.lubL.linhas[L]; const lf=DATA.lubL.cols.map((c,i)=>({c,v:la[i]})).filter(x=>x.v!=null && !lubHit(x.v,x.c));
+    items.push(`<li><b>Saúde da lubrificação:</b> ${e.lub.txt} — ${e.lub.ok?'no alvo':`faltam ${e.lub.need} critério(s). Vermelhos: ${lf.map(x=>`${x.c.n} ${lubTxt(x.v,x.c)}`).join(', ')}`}.</li>`); }
+  items.push(e.oh? `<li><b>OH:</b> ${e.oh.txt} executado ${e.oh.ok?'✔':'✖'}.</li>` : `<li><b>OH:</b> sem OH programado em 2026 no BI.</li>`);
+  return `<div class="linehead"><div style="font-size:17px;font-weight:700">${L} <span class="muted" style="font-size:13px;font-weight:500">· ${DATA.linhas[L].g}</span></div><div class="pill">${e.okN}/${e.n} compromissos no alvo</div></div><ul class="clean">${items.join('')}</ul>`;
+}
+
+// ----- Tabela saúde planejamento
+function renderSP(){
+  const rows = Object.keys(DATA.sp.linhas).filter(L=> grp==="Todas" || (DATA.linhas[L]&&DATA.linhas[L].g===grp));
+  let h=`<thead><tr><th class="l">Linha</th><th>Pontos</th><th>Faltam</th>${DATA.sp.cols.map(c=>`<th>${c.n}<br><span class="tiny">${c.op==='>='?'≥':'≤'}${c.m}${c.u}</span></th>`).join('')}</tr></thead><tbody>`;
+  const row=(name,arr,bold)=>{const s=spScore(arr);
+    return `<tr><td class="l">${bold?'<b>'+name+'</b>':name}</td><td>${cell(s.pts,s.pts>=METAS.sp[P],s.pts+' pts')}</td><td>${s.need? s.need+' verde'+(s.need>1?'s':''):'—'}</td>${arr.map((v,i)=>`<td>${v==null?'<span class="c na">—</span>':cell(v,hit(v,DATA.sp.cols[i].op,DATA.sp.cols[i].m),fmt(v)+DATA.sp.cols[i].u)}</td>`).join('')}</tr>`;};
+  h+=row('NR Packaging',DATA.sp.planta,true);
+  rows.forEach(L=>h+=row(L,DATA.sp.linhas[L]));
+  h+='</tbody>';
+  document.getElementById('spTable').innerHTML=h;
+}
+
+// ----- Tabela saúde lubrificação
+function renderLub(){
+  const C=DATA.lubL.cols;
+  const rows = Object.keys(DATA.lubL.linhas).filter(L=> grp==="Todas" || (DATA.linhas[L]&&DATA.linhas[L].g===grp));
+  let h=`<thead><tr><th class="l">Linha</th><th>Pontos</th><th>Faltam</th>${C.map(c=>`<th>${c.n}<br><span class="tiny">${c.op==='bool'?'SIM':(c.op==='>='?'≥':'≤')+c.m+c.u}</span></th>`).join('')}</tr></thead><tbody>`;
+  const row=(name,arr,bold)=>{const q=lubScore(arr);
+    return `<tr><td class="l">${bold?'<b>'+name+'</b>':name}</td><td>${cell(q.pts,q.pts>=METAS.lub[P],q.pts+' pts')}</td><td>${q.need? q.need+' critério'+(q.need>1?'s':''):'—'}</td>${arr.map((v,i)=>`<td>${v==null?'<span class="c na">—</span>':cell(v,lubHit(v,C[i]),lubTxt(v,C[i]))}</td>`).join('')}</tr>`;};
+  h+=row('NR Packaging',DATA.lubL.planta,true);
+  rows.forEach(L=>h+=row(L,DATA.lubL.linhas[L]));
+  h+='</tbody>';
+  document.getElementById('lubTable').innerHTML=h;
+}
+
+// ----- RCM bars
+const tip=document.getElementById('tip');
+function bindTip(el,txt){el.onmousemove=e=>{tip.textContent=txt;tip.style.opacity=1;tip.style.left=(e.clientX+12)+'px';tip.style.top=(e.clientY+12)+'px'};el.onmouseleave=()=>tip.style.opacity=0;}
+function renderRCM(){
+  const box=document.getElementById('rcmRows');
+  const ent=Object.entries(DATA.rcm.linhas).filter(([L])=> grp==="Todas" || DATA.linhas[L].g===grp).sort((a,b)=>a[1][1]-b[1][1]);
+  if(!ent.length){ box.innerHTML='<div class="muted">Sem linhas deste grupo no RCM.</div>'; return; }
+  box.innerHTML = ent.map(([L,[q,ql]])=>`
+    <div class="row" data-l="${L}"><div><b style="font-size:14px">${L}</b> <b style="color:${q>=90&&ql>=80?'var(--good-ink)':'var(--crit-ink)'}">${q>=90&&ql>=80?'✔':'✖'}</b></div>
+      <div>
+        <div style="display:grid;grid-template-columns:46px 1fr;gap:6px;align-items:center"><span class="rl">Quant.</span><div class="bar" style="margin:0"><i style="width:${q}%;background:${q>=90?'var(--good)':'var(--crit)'}"></i><u style="left:calc(90% - 1px)"></u></div></div>
+        <div style="display:grid;grid-template-columns:46px 1fr;gap:6px;align-items:center;margin-top:3px"><span class="rl">Qual.</span><div class="bar" style="margin:0"><i style="width:${ql}%;background:${ql>=80?'var(--good)':'var(--crit)'}"></i><u style="left:calc(80% - 1px)"></u></div></div>
+      </div>
+      <div class="num"><span style="font-weight:700;color:${q>=90?'var(--good-ink)':'var(--crit-ink)'}">${fmt(q)}%</span><br><span style="font-weight:700;color:${ql>=80?'var(--good-ink)':'var(--crit-ink)'}">${fmt(ql)}%</span></div></div>`).join('');
+  box.querySelectorAll('.row').forEach(r=>{const [q,ql]=DATA.rcm.linhas[r.dataset.l]; bindTip(r,`${r.dataset.l} · quantitativo ${fmt(q)}% (meta 90) · qualitativo ${fmt(ql)}% (meta 80)`);});
+}
+
+// ----- Lubrificação
+document.getElementById('lubRows').innerHTML = DATA.lubL.cols.map((c,i)=>{const v=DATA.lubL.planta[i]; return `
+  <div class="row" style="grid-template-columns:1fr auto"><div style="font-size:14px">${c.n} <span class="tiny">· ${c.op==='bool'?'SIM':(c.op==='>='?'≥':'≤')+c.m+c.u}</span></div><div>${cell(v,lubHit(v,c),lubTxt(v,c))}</div></div>`;}).join('')
+;
+
+// ----- Regras
+document.getElementById('rules').innerHTML = `<thead><tr><th class="l">Compromisso</th><th class="l">Cálculo</th><th>Meta H1</th><th>Meta H2</th><th class="l">Padrão</th></tr></thead><tbody>
+<tr><td class="l">Aplicação planos referência</td><td class="l" style="white-space:normal">Quant.: planos aplicados ÷ planos do RCM · Qual.: planos aderentes ÷ planos do RCM</td><td>≥ 80%</td><td>Quant. ≥ 90% <b>e</b> Qual. ≥ 80%</td><td class="l">ZBS-502195</td></tr>
+<tr><td class="l">Zero erros críticos</td><td class="l" style="white-space:normal">Planos com erro crítico ÷ planos preventivos (IP18)</td><td>≤ 0,1%</td><td>≤ 0,1%</td><td class="l">ZBS-502195</td></tr>
+<tr><td class="l">Execução de OH</td><td class="l" style="white-space:normal">Ordens de revisão executadas ÷ total no período (YTD)</td><td>100%</td><td>100%</td><td class="l">ZBS-503082</td></tr>
+<tr><td class="l">Saúde da lubrificação</td><td class="l" style="white-space:normal">10 critérios × 10 pts se atingir o mínimo</td><td>≥ 80</td><td>≥ 90</td><td class="l">ZBS-503752</td></tr>
+<tr><td class="l">Saúde do planejamento</td><td class="l" style="white-space:normal">Indicadores verdes ÷ indicadores aplicáveis × 100</td><td>≥ 70</td><td>≥ 80</td><td class="l">ZBS-503280</td></tr>
+</tbody>`;
+const _foot = `Fontes: Power BI Confiabilidade SAZ (Saúde do Planejamento, Dash Lubrificação, Visibilidade Overhaul 2026) e Supply Analytics Manutenção (Saudabilidade Planos, RCM Aderência). Dados atualizados no BI em ${DATA.ref}. Visão geral filtrada em Unidade F. RIO JANEIRO + UG PACKAGING (RCM, erros críticos, OH, saúde do planejamento). Saúde da lubrificação recalculada por linha a partir dos BIs de SmartCheck, RCM, Saudabilidade, P3M e Saúde do Planejamento (out/26). Contagens de erro crítico por linha exatas (tabela do BI).`;
+
+// ----- Tema
+(function(){const r=document.documentElement; try{const t=localStorage.getItem('theme'); if(t) r.dataset.theme=t;}catch(e){}
+document.getElementById('themeBtn').onclick=()=>{const dark = r.dataset.theme? r.dataset.theme==='dark' : matchMedia('(prefers-color-scheme: dark)').matches; r.dataset.theme = dark?'light':'dark'; try{localStorage.setItem('theme',r.dataset.theme);}catch(e){}};})();
+
+// ----- indicador de colunas escondidas
+function updMore(){ document.querySelectorAll('.tw').forEach(w=>{const t=w.querySelector('.tablewrap'); w.classList.toggle('more', t.scrollWidth - t.clientWidth - t.scrollLeft > 4);}); }
+document.querySelectorAll('.tablewrap').forEach(t=>t.addEventListener('scroll',updMore,{passive:true}));
+addEventListener('resize',updMore);
+document.querySelector('details.rules').addEventListener('toggle',updMore);
+
+renderMatrix(); renderSP(); renderLub(); renderRCM(); updMore();
+</script>
+</body>
+</html>
