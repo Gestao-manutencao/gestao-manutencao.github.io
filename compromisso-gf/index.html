@@ -183,7 +183,7 @@ footer{margin-top:32px;font-size:12px;color:var(--ink3)}
    DADOS — atualizar este bloco a cada rodada de coleta
    ============================================================ */
 const DATA = {
-  ref: "03/11/2026", refRcm: "01/11",
+  ref: "12/11/2026", refRcm: "01/11",
   periodo: "H2",
   linhas: {
     // grupo: Retornáveis / One Way / Outras
@@ -192,7 +192,7 @@ const DATA = {
     L511:{g:"One Way"}, L512:{g:"One Way"}, L514:{g:"One Way"}, L541:{g:"One Way"}, L561:{g:"One Way"}, L562:{g:"One Way"},
     L527:{g:"Outras"}, L528:{g:"Outras"}, CIP:{g:"Outras"}
   },
-  // Saúde do planejamento — BI Confiabilidade SAZ > Saúde do Planejamento (visão gerencial, Packaging, out/26)
+  // Saúde do planejamento — BI Confiabilidade SAZ > Saúde do Planejamento (visão gerencial, Packaging, nov/26)
   sp: {
     cols:[
       {k:"ope",  n:"% OPE relatando anomalia", op:">=", m:70, u:"%"},
@@ -206,24 +206,24 @@ const DATA = {
       {k:"col",  n:"% Coletas preditivas",     op:">=", m:90, u:"%"},
       {k:"rdp",  n:"% Exec. RDP",              op:">=", m:90, u:"%"}
     ],
-    planta:[81.1, 80.9, 97.4, 1.5, 20.0, 85.6, 40.4, 96.6, 93.9, 100.0],
+    planta:[50.0, 15.6, 97.3, 1.2, 25.2, 29.0, 9.5, 98.4, 95.1, 13.0],
     linhas:{
-      L501:[71.1, 84.6, 98.0, 3.6, 25.9, 82.6, 58.3, 78.9, 90.0, null],
-      L503:[37.5, 87.5, 96.8, 1.7, 15.0, 96.0, 0.0, 100.0, 91.9, 100.0],
-      L505:[77.8, 100.0, 97.1, 0.7, 17.4, 86.9, 38.1, 100.0, 93.6, 100.0],
-      L506:[70.0, 77.3, 98.1, 1.3, 18.2, 82.9, 50.0, 100.0, 100.0, null],
-      L511:[75.0, 62.5, 96.2, 0.8, 15.2, 81.9, 22.2, 100.0, 100.0, null],
-      L512:[83.3, 81.0, 96.9, 0.8, 10.1, 88.9, 16.7, 100.0, 98.5, null],
-      L514:[92.6, 58.8, 96.3, 1.2, 17.0, 92.1, 25.0, 100.0, 100.0, null],
-      L521:[80.0, 75.0, 98.3, 4.2, 42.0, 53.6, 21.1, null, 100.0, null],
-      L527:[87.1, 108.3, 98.7, 0.8, 12.0, 86.0, 88.9, null, 100.0, null],
-      L528:[96.2, 87.5, 98.2, 1.2, 14.2, 94.6, null, 100.0, null, null],
-      L541:[41.8, 78.6, 96.4, 0.9, 16.9, 85.9, 10.5, 100.0, 94.0, 100.0],
-      L542:[80.0, 77.8, 98.3, 0.8, 9.7, 95.3, 100.0, 100.0, 96.5, 100.0],
-      L543:[null, null, 98.9, 0.3, 67.2, 97.3, 100.0, null, null, null],
-      L561:[95.8, 100.0, 98.5, 1.1, 21.0, 79.8, 0.0, 100.0, 100.0, null],
-      L562:[75.0, 81.3, 95.4, 0.7, 9.8, 86.8, 0.0, 100.0, 79.1, null],
-      CIP:[null, null, 90.5, 8.5, 26.5, 75.5, 18.2, 100.0, null, null]
+      L501:[41.0, 15.4, 98.1, 2.0, 26.7, 40.5, 21.7, 100.0, 90.0, null],
+      L503:[22.2, 0.0, 97.6, 4.8, 11.1, 15.9, 0.0, 100.0, 91.9, 100.0],
+      L505:[53.3, 14.3, 98.1, 0.5, 14.8, 22.8, 10.0, 100.0, 93.6, 25.0],
+      L506:[51.3, 22.7, 98.4, 1.5, 43.7, 32.8, 11.8, 100.0, 100.0, null],
+      L511:[54.8, 26.7, 95.4, 1.0, 40.4, 27.9, 0.0, 100.0, 100.0, 0.0],
+      L512:[45.8, 19.0, 95.9, 1.1, 9.0, 37.0, 0.0, 66.7, 100.0, 100.0],
+      L514:[44.4, 5.9, 96.2, 0.6, 32.0, 33.2, 0.0, 100.0, 100.0, null],
+      L521:[35.7, 25.0, 97.2, 0.3, 40.0, 33.1, 0.0, 100.0, 100.0, 0.0],
+      L527:[54.8, 14.3, 98.4, 0.2, 8.0, 30.1, 28.6, null, 100.0, 0.0],
+      L528:[57.7, 37.5, 97.8, 2.0, 28.1, 19.5, 0.0, 100.0, null, null],
+      L541:[27.7, 12.5, 96.5, 0.8, 10.0, 35.4, 0.0, 100.0, 100.0, 0.0],
+      L542:[50.0, 5.6, 98.5, 0.6, 28.0, 27.8, 15.4, null, 98.3, 0.0],
+      L543:[null, null, 98.5, 0.4, 30.9, 47.5, 0.0, null, null, null],
+      L561:[25.0, 10.0, 97.3, 1.4, 41.3, 23.9, 0.0, 100.0, 100.0, 0.0],
+      L562:[28.6, 18.8, 94.6, 0.6, 33.3, 13.9, 0.0, null, 100.0, null],
+      CIP:[null, null, 92.2, 0.6, 60.0, 5.5, null, 100.0, null, null]
     }
   },
   // RCM — Supply Analytics Manutenção > Saudabilidade RCM > RCM Aderência (Unidade F. RIO JANEIRO + UG PACKAGING)
@@ -258,25 +258,25 @@ const DATA = {
              L541:100, L542:100, L561:100, L562:100 },
     pendente:""
   },
-  // Lubrificação — Confiabilidade SAZ > Dash Lubrificação > Requisitos Mínimos (NR, out/26)
+  // Lubrificação — Confiabilidade SAZ > Dash Lubrificação > Requisitos Mínimos (NR, nov/26)
   lub: {
-    pontos:80,
+    pontos:60,
     itens:[
       {n:"Existe dono para sala", v:"SIM", ok:true, g:"Estratégia"},
-      {n:"% Saúde SmartCheck", v:"92,4%", ok:true, g:"Estratégia"},
-      {n:"Aderência RCM referência ≥90%", v:"96,9%", ok:true, g:"Estratégia"},
-      {n:"Saúde planos lubrificação ≥90%", v:"95,2%", ok:true, g:"Estratégia"},
-      {n:"Taxa coleta óleo ≥90%", v:"96,2%", ok:true, g:"Execução"},
-      {n:"Exec. planos SAP ≥90%", v:"96,6%", ok:true, g:"Execução"},
-      {n:"Exec. lubrificação SmartCheck ≥90%", v:"89,0%", ok:false, g:"Execução"},
-      {n:"% Exec. RDP óleo ≥90%", v:"100,0%", ok:true, g:"Execução"},
-      {n:"Taxa falha óleo ≤12%", v:"14,4%", ok:false, g:"Resultado"},
-      {n:"Taxa recorrência ≤10%", v:"0,0%", ok:true, g:"Resultado"}
+      {n:"% Saúde SmartCheck", v:"92,5%", ok:true, g:"Estratégia"},
+      {n:"Aderência RCM referência ≥90%", v:"94,3%", ok:true, g:"Estratégia"},
+      {n:"Saúde planos lubrificação ≥90%", v:"95,7%", ok:true, g:"Estratégia"},
+      {n:"Taxa coleta óleo ≥90%", v:"100,0%", ok:true, g:"Execução"},
+      {n:"Exec. planos SAP ≥90%", v:"28,4%", ok:false, g:"Execução"},
+      {n:"Exec. lubrificação SmartCheck ≥90%", v:"94,5%", ok:true, g:"Execução"},
+      {n:"% Exec. RDP óleo ≥90%", v:"0,0%", ok:false, g:"Execução"},
+      {n:"Taxa falha óleo ≤12%", v:"15,1%", ok:false, g:"Resultado"},
+      {n:"Taxa recorrência ≤10%", v:"50,0%", ok:false, g:"Resultado"}
     ]
   },
-  // Lubrificação por linha (out/26) — 10 critérios. Ordem: dono sala, % saúde SmartCheck, aderência RCM (H302, quant.),
-  // saúde planos (H302), taxa coleta óleo (=coletas preditivas da saúde do planejamento), exec. planos SAP (P3M H302 out/26),
-  // exec. lubrificação SmartCheck (out/26, ponderado por atividades), % exec RDP óleo (= RDP da saúde do planejamento),
+  // Lubrificação por linha (nov/26) — 10 critérios. Ordem: dono sala, % saúde SmartCheck, aderência RCM (H302, quant.),
+  // saúde planos (H302), taxa coleta óleo (=coletas preditivas da saúde do planejamento), exec. planos SAP (P3M H302 nov/26),
+  // exec. lubrificação SmartCheck (nov/26, ponderado por atividades), % exec RDP óleo (= RDP da saúde do planejamento),
   // taxa de falha óleo e recorrência (valor da planta NR para todas as linhas)
   lubL: {
     cols:[
@@ -291,23 +291,23 @@ const DATA = {
       {k:"fal",  n:"Taxa falha óleo (planta)",            op:"<=", m:12, u:"%", g:"Resultado"},
       {k:"rec",  n:"Taxa recorrência (planta)",           op:"<=", m:10, u:"%", g:"Resultado"}
     ],
-    planta:[1, 92.3, 96.35, 95.24, 96.2, 93.03, 89.0, 100.0, 14.4, 0.0],
+    planta:[1, 92.4, 96.35, 95.24, 100.0, 27.78, 94.5, 13.0, 15.1, 50.0],
   linhas:{
-      L501:[1, 97.9, 88.24, 100.0, 90.0, 100.0, 99.04, null, 26.67, 0.0],
-      L503:[1, 93.6, 100.0, 96.73, 91.9, 100.0, 90.0, 100.0, 10.61, 0.0],
-      L505:[1, 96.7, 100.0, 99.63, 93.6, 81.58, 100.0, 100.0, 22.73, 0.0],
-      L506:[1, 93.6, 100.0, 93.88, 100.0, 100.0, 96.0, null, 14.47, 0.0],
-      L511:[1, 92.25, 100.0, 96.79, 100.0, 77.78, 100.0, null, 15.25, 0.0],
-      L512:[1, 94.0, 85.71, 94.9, 98.5, 92.31, 86.0, null, 8.33, 0.0],
-      L514:[1, 99.45, 100.0, 94.8, 100.0, 71.43, 100.0, null, 1.56, 0.0],
-      L521:[1, 85.7, 100.0, 100.0, 100.0, null, 63.0, null, 20.83, 0.0],
-      L527:[1, 75.0, null, 77.86, 100.0, 100.0, 86.0, null, 11.27, 0.0],
-      L528:[1, 98.8, null, 63.1, null, 100.0, 100.0, null, null, 0.0],
-      L541:[1, 93.0, 94.74, 98.04, 94.0, 100.0, 96.54, 100.0, 35.71, 0.0],
-      L542:[1, 92.2, 100.0, 98.35, 96.5, 100.0, 90.0, 100.0, 23.29, 0.0],
-      L543:[1, 60.0, null, 100.0, null, null, 73.0, null, null, 0.0],
-      L561:[1, 95.7, 100.0, 100.0, 100.0, 100.0, 88.73, null, 6.45, 0.0],
-      L562:[1, 98.0, 66.67, 100.0, 79.1, 100.0, 100.0, null, 5.0, 0.0],
+      L501:[1, 97.9, 88.24, 100.0, 90.0, 8.11, 92.86, null, 26.67, 0.0],
+      L503:[1, 93.4, 100.0, 96.73, 91.9, 5.88, 89.74, 100.0, 10.61, 0.0],
+      L505:[1, 96.3, 100.0, 99.63, 93.6, 66.67, 93.33, 25.0, 22.73, 0.0],
+      L506:[1, 93.9, 100.0, 93.88, 100.0, 19.05, 100.0, null, 14.47, 0.0],
+      L511:[1, 92.55, 100.0, 96.79, 100.0, 25.81, 100.0, 0.0, 16.95, 0.0],
+      L512:[1, 92.9, 85.71, 94.9, 100.0, 0.0, 100.0, 100.0, 8.33, 0.0],
+      L514:[1, 99.5, 100.0, 94.8, 100.0, 68.75, 100.0, null, 1.56, 0.0],
+      L521:[1, 85.7, 100.0, 100.0, 100.0, 0.0, 90.48, 0.0, 20.83, 0.0],
+      L527:[1, 91.7, null, 77.86, 100.0, 70.0, 100.0, 0.0, 11.27, 0.0],
+      L528:[1, 98.9, null, 63.1, null, 0.0, 100.0, null, null, 0.0],
+      L541:[1, 93.15, 94.74, 98.04, 100.0, 78.57, 86.66, 0.0, 35.71, 0.0],
+      L542:[1, 92.5, 100.0, 98.35, 98.3, 23.08, 100.0, 0.0, 30.14, 60.0],
+      L543:[1, 64.1, null, 100.0, null, null, 84.21, null, null, 0.0],
+      L561:[1, 95.8, 100.0, 100.0, 100.0, 0.0, 100.0, 0.0, 6.45, 0.0],
+      L562:[1, 98.1, 66.67, 100.0, 100.0, 0.0, 100.0, null, 5.0, 0.0],
       CIP:[1, 100.0, null, null, null, null, 100.0, null, null, 0.0]
     },
     biNR:70
@@ -366,11 +366,11 @@ const spNearest = DATA.sp.cols.map((c,i)=>({c,v:DATA.sp.planta[i]})).filter(x=>x
   .map(x=>({...x,dist: Math.abs(x.v-x.c.m)/ (x.c.op==="<="? x.c.m : x.c.m)})).sort((a,b)=>a.dist-b.dist);
 
 const COMP = [
-  {id:"sp", per:"out/26", t:"Saúde do planejamento", v:`${spP.pts}<small> pts</small>`, meta:`meta ≥ ${METAS.sp[P]} pts`, ok: spP.pts>=METAS.sp[P],
+  {id:"sp", per:"nov/26", t:"Saúde do planejamento", v:`${spP.pts}<small> pts</small>`, meta:`meta ≥ ${METAS.sp[P]} pts`, ok: spP.pts>=METAS.sp[P],
    bar: barHTML(spP.pts,METAS.sp[P],100,spP.pts>=METAS.sp[P]),
    gap: spP.need? `Faltam <b>${spP.need} indicadores verdes</b>. Mais perto: ${spNearest.slice(0,2).map(x=>`${x.c.n} (${fmt(x.v)}${x.c.u} vs ${x.c.op==='>='?'≥':'≤'}${x.c.m}${x.c.u})`).join('; ')}.` : 'No alvo.',
    src:"sp"},
-  {id:"lub", per:"out/26", t:"Saúde da lubrificação", v:`${lubP.pts}<small> pts</small>`, meta:`meta ≥ ${METAS.lub[P]} pts`, ok: lubOk,
+  {id:"lub", per:"nov/26", t:"Saúde da lubrificação", v:`${lubP.pts}<small> pts</small>`, meta:`meta ≥ ${METAS.lub[P]} pts`, ok: lubOk,
    bar: barHTML(lubP.pts,METAS.lub[P],100,lubOk),
    gap: (lubNeed? `Faltam <b>${lubNeed} critérios</b>. Abertos: ${lubFail.map(x=>`${x.c.n} (${lubTxt(x.v,x.c)})`).join('; ')}.` : 'No alvo.'), src:"lub"},
   {id:"rcm", per:`posição ${DATA.refRcm}`, t:"Aplicação planos referência", v:`<span class="v2" style="color:${r.quant>=METAS.rcmQuant[P]?'var(--good-ink)':'var(--crit-ink)'}">${fmt(r.quant)}%</span><small> quant.</small> <span class="v2" style="color:${r.qual>=METAS.rcmQual[P]?'var(--good-ink)':'var(--crit-ink)'}">${fmt(r.qual)}%</span><small> qual.</small>`, meta:`quantitativo ≥ ${METAS.rcmQuant[P]}% e qualitativo ≥ ${METAS.rcmQual[P]}%`,
@@ -524,7 +524,7 @@ document.getElementById('rules').innerHTML = `<thead><tr><th class="l">Compromis
 <tr><td class="l">Saúde da lubrificação</td><td class="l" style="white-space:normal">10 critérios × 10 pts se atingir o mínimo</td><td>≥ 80</td><td>≥ 90</td><td class="l">ZBS-503752</td></tr>
 <tr><td class="l">Saúde do planejamento</td><td class="l" style="white-space:normal">Indicadores verdes ÷ indicadores aplicáveis × 100</td><td>≥ 70</td><td>≥ 80</td><td class="l">ZBS-503280</td></tr>
 </tbody>`;
-const _foot = `Fontes: Power BI Confiabilidade SAZ (Saúde do Planejamento, Dash Lubrificação, Visibilidade Overhaul 2026) e Supply Analytics Manutenção (Saudabilidade Planos, RCM Aderência). Dados atualizados no BI em ${DATA.ref}. Visão geral filtrada em Unidade F. RIO JANEIRO + UG PACKAGING (RCM, erros críticos, OH, saúde do planejamento). Saúde da lubrificação recalculada por linha a partir dos BIs de SmartCheck, RCM, Saudabilidade, P3M e Saúde do Planejamento (out/26). Contagens de erro crítico por linha exatas (tabela do BI).`;
+const _foot = `Fontes: Power BI Confiabilidade SAZ (Saúde do Planejamento, Dash Lubrificação, Visibilidade Overhaul 2026) e Supply Analytics Manutenção (Saudabilidade Planos, RCM Aderência). Dados atualizados no BI em ${DATA.ref}. Visão geral filtrada em Unidade F. RIO JANEIRO + UG PACKAGING (RCM, erros críticos, OH, saúde do planejamento). Saúde da lubrificação recalculada por linha a partir dos BIs de SmartCheck, RCM, Saudabilidade, P3M e Saúde do Planejamento (nov/26). Contagens de erro crítico por linha exatas (tabela do BI).`;
 
 // ----- Tema
 (function(){const r=document.documentElement; try{const t=localStorage.getItem('theme'); if(t) r.dataset.theme=t;}catch(e){}
