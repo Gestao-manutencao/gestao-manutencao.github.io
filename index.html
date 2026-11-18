@@ -61,7 +61,7 @@ main iframe.on{display:block}
     <a href="#tecnicos" data-id="tecnicos"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2M9.5 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8M21 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><span class="txt">% Técnicos &gt;10 ordens</span></a>
     <a href="#operador" data-id="operador"><svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg><span class="txt">% Operador Relatando</span></a>
     <div class="sep"></div>
-    <div class="off" aria-disabled="true"><svg viewBox="0 0 24 24"><path d="M22 11.1V12a10 10 0 1 1-5.9-9.1M22 4 12 14l-3-3"/></svg><span class="txt">Farol QA<span class="tag">Em desenvolvimento</span></span></div>
+    <a href="#farol" data-id="farol"><svg viewBox="0 0 24 24"><path d="M22 11.1V12a10 10 0 1 1-5.9-9.1M22 4 12 14l-3-3"/></svg><span class="txt">Farol QA</span></a>
     <div class="off" aria-disabled="true"><svg viewBox="0 0 24 24"><path d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16M21 21l-4.3-4.3"/></svg><span class="txt">Inspeção Vs Monitoramento<span class="tag">Em desenvolvimento</span></span></div>
     <div class="off" aria-disabled="true"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span class="txt">Custo<span class="tag">Em breve</span></span></div>
   </nav>
@@ -78,7 +78,8 @@ main iframe.on{display:block}
 var ITEMS={
   'compromisso-gf':{src:'compromisso-gf/index.html',title:'Compromisso do GF'},
   'tecnicos':{src:'tecnicos/index.html',title:'% Técnicos >10 ordens'},
-  'operador':{src:'operador-relatando/index.html',title:'% Operador Relatando'}
+  'operador':{src:'operador-relatando/index.html',title:'% Operador Relatando'},
+  'farol':{src:'farol-qa/index.html',title:'Farol QA Manutenção – Vidro'}
 };
 var DEFAULT='compromisso-gf';
 var root=document.documentElement, main=document.getElementById('main'), ttl=document.getElementById('ttl');
